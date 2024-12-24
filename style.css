@@ -1,85 +1,204 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  text-decoration: none;
-  border: none;
-  outline: none;
-  scroll-behavior: smooth;
-  font-family: 'Poppins', sans-serif;
-}
- 
+/* ตั้งค่าธีมสี */
 :root {
-    --bg-color: #000000;
-    --second-bg-color: #161616;
-    --text-color: #fff;
-    --main-color: #7b4bb7;
-  }
-  
-  html {
-    font-size: 62.5%;
-    overflow-x: hidden;
-  }
-  
-  body {
-    background: var(--bg-color);
-    font-family: 'Poppins', sans-serif;
-    color:var(--text-color)
-  }
-  
-  html::-webkit-scrollbar {
-    width: 0.8rem;
-  }
-  
-  html::-webkit-scrollbar-track {
-    background: var(--bg-color);
-  }
-  
-  html::-webkit-scrollbar-thumb {
-    background: var(--main-color);
-  }
-  
-.header{
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    padding: 3rem 9%;
-    background: rgba(0,0,0,0.7);
-    filter: drop-shadow(10px);
+    --primary-color: #e63946; /* สีแดง */
+    --secondary-color: #333333; /* สีดำ */
+    --background-color: #121212; /* พื้นหลังสีดำเข้ม */
+    --text-color: #f1f1f1; /* สีตัวอักษรขาว */
+    --highlight-color: #d90429; /* สีแดงเข้มสำหรับเน้นบางจุด */
+    --border-color: #444444; /* สีขอบสำหรับการแยกส่วนต่างๆ */
+}
+
+/* การตั้งค่าพื้นฐาน */
+@font-face {
+    font-family: kanit;
+    src: url(/Kanit/Kanit-Regular.ttf);
+}
+body {
+    font-family: 'kanit';
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+/* ส่วนของ Navbar */
+.navbar {
+    background-color: var(--primary-color); /* สีแดง */
+    padding: 15px;
+    color: white;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
     z-index: 100;
+}
 
-}
-.logo {
-    font-size: 3rem;
-    color: var(--main-color);
-    font-weight: 800;
-    cursor: pointer;
-    transition: 0.5s ease;
-}
-.logo:hover{
-    transform: scale(1.1);
-}
-.navbar a {
-    font-size: 1.8rem;
-    color: var(--text-color);
-    margin-left: 4rem;
+.navbar-name span {
+    font-size: 24px;
     font-weight: 500;
-    transition: 0.3 ease;
-    border-bottom: 3px solid transparent;
 }
-.navbar a:hover,
-.navbar a.active{
-    color: var(--main-color);
-    border-bottom: 3px solid var(--main-color);
+
+.navbar-links span {
+    margin: 0 15px;
 }
-#menu-icon{
-    font-size: 3.6rem;
-    color: var(--main-color);
-    display: none;
+
+.navbar-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.navbar-links a:hover {
+    color: var(--background-color); /* เปลี่ยนสีเมื่อ hover เป็นสีดำ */
+}
+
+/* เพิ่ม padding-top ให้เนื้อหาหลักเลื่อนลงมาหลัง navbar ติดอยู่ที่ด้านบน */
+.content {
+    padding-top: 80px;
+}
+
+/* ส่วนของ Home */
+.home {
+    text-align: center;
+    background-color: var(--secondary-color); /* สีดำ */
+    padding: 50px 0;
+}
+
+.home-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+    object-fit: cover;
+    border: 5px solid var(--primary-color); /* กรอบสีแดงรอบรูปภาพ */
+}
+
+.Front-head {
+    font-size: 32px; /* ขยายขนาดชื่อให้ใหญ่ขึ้น */
+    margin-bottom: 20px;
+    color: var(--primary-color); /* สีแดงสำหรับชื่อ */
+}
+
+/* ส่วนของ About Me */
+#aboutMe { 
+    background-color: var(--secondary-color);
+    padding: 50px 0;
+    margin-top: 20px;
+    text-align: center;
+}
+
+#aboutMe h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: var(--primary-color); /* สีแดงสำหรับหัวข้อ */
+}
+
+#aboutMe p {
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+/* ส่วนของ Skills */
+#skills {
+    background-color: var(--secondary-color);
+    padding: 50px 0;
+    margin-top: 20px;
+    text-align: center;
+}
+.skills-icons img {
+    width: 70px;
+    margin: 0 15px;
+    transition: transform 0.3s ease;
+}
+
+/* ส่วนของ Education */
+#education, #Experience {
+    padding: 40px 20px;
+    background-color: #333333; /* สีดำ */
+    text-align: center;
+    margin-top: 20px;
+    border-top: 1px solid var(--border-color);
+}
+
+#education p, #Experience p {
+    font-size: 18px;
+    color: var(--text-color); /* สีตัวอักษรขาว */
+}
+
+#Experience h3 {
+    font-size: 22px;
+    color: var(--primary-color); /* สีแดงสำหรับหัวข้อ */
+}
+
+#Experience strong {
+    font-weight: 500;
+}
+
+/* ส่วนของ Contact */
+#contact {
+    background-color: var(--secondary-color); /* ใช้สีแดงสำหรับส่วน Contact */
+    padding: 50px 0;
+    margin-top: 20px;
+    text-align: center;
+}
+
+#contact p {
+    font-size: 18px;
+    margin: 10px 0;
+    color: var(--text-color); /* สีตัวอักษรขาว */
+}
+
+#contact a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+#contact a:hover {
+    color: var(--background-color); /* เปลี่ยนสีเมื่อ hover เป็นสีดำ */
+}
+
+/* ปรับแต่งให้รองรับมือถือ */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .navbar-links {
+        margin-top: 20px;
+    }
+
+    .navbar-links span {
+        display: block;
+        margin: 10px 0;
+    }
+
+    .home {
+        padding: 30px 0;
+    }
+
+    .skills-icons img {
+        width: 50px;
+    }
+
+    #aboutMe h2 {
+        font-size: 24px;
+    }
+
+    #aboutMe p {
+        font-size: 16px;
+    }
+
+    #education p, #Experience p {
+        font-size: 16px;
+    }
+
+    #contact p {
+        font-size: 16px;
+    }
 }
