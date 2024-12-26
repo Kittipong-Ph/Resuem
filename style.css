@@ -1,39 +1,32 @@
 /* ตั้งค่าธีมสี */
 :root {
     --primary-color: #e63946; /* สีแดง */
-    --secondary-color: #333333; /* สีดำ */
-    --background-color: #121212; /* พื้นหลังสีดำเข้ม */
+    --secondary-color: #121212; /* สีดำ */
     --text-color: #f1f1f1; /* สีตัวอักษรขาว */
-    --highlight-color: #d90429; /* สีแดงเข้มสำหรับเน้นบางจุด */
-    --border-color: #444444; /* สีขอบสำหรับการแยกส่วนต่างๆ */
+    --accent-color: #a8dadc; /* สีฟ้าสำหรับเน้น */
+    --background-image: url('/imag/9d66aeb9287cd11c873bfe964e85469b.jpg'); /* ลิงก์ไปยังภาพพื้นหลัง */
 }
-
 /* การตั้งค่าพื้นฐาน */
-@font-face {
-    font-family: kanit;
-    src: url(/Kanit/Kanit-Regular.ttf);
-}
+/* การตั้งค่าพื้นฐาน */
 body {
-    font-family: 'kanit';
+    font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: var(--background-color);
+    background: var(--background-image) no-repeat center center fixed;
+    background-size: cover;
     color: var(--text-color);
 }
 
-/* ส่วนของ Navbar */
+/* Navbar */
 .navbar {
-    background-color: var(--primary-color); /* สีแดง */
+    background-color: rgba(0, 0, 0, 0.7); /* สีดำโปร่งแสง */
     padding: 15px;
     color: white;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     position: fixed;
     width: 100%;
-    top: 0;
-    left: 0;
     z-index: 100;
 }
 
@@ -52,29 +45,63 @@ body {
     font-size: 16px;
 }
 
-.navbar-links a:hover {
-    color: var(--background-color); /* เปลี่ยนสีเมื่อ hover เป็นสีดำ */
-}
-
 /* เพิ่ม padding-top ให้เนื้อหาหลักเลื่อนลงมาหลัง navbar ติดอยู่ที่ด้านบน */
 .content {
     padding-top: 80px;
 }
 
-/* ส่วนของ Home */
+/* Home Section */
 .home {
-    text-align: center;
-    background-color: var(--secondary-color); /* สีดำ */
-    padding: 50px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 50px;
+    background: rgba(0, 0, 0, 0.7); /* พื้นหลังโปร่งแสง */
+}
+
+/* Section Background */
+section {
+    padding: 50px 20px;
+    background: rgba(0, 0, 0, 0.8); /* พื้นหลังโปร่งแสง */
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+.home-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.home-text {
+    max-width: 80%;
+}
+
+.home-text h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+    color: var(--text-color);
+}
+
+.home-text .accent {
+    color: var(--accent-color);
+}
+
+.home-text p {
+    font-size: 30px;
+    line-height: 1.6;
+}
+
+.home-image-wrapper {
+    max-width: 35%;
 }
 
 .home-image {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    margin-bottom: 20px;
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     object-fit: cover;
-    border: 5px solid var(--primary-color); /* กรอบสีแดงรอบรูปภาพ */
 }
 
 .Front-head {
@@ -118,7 +145,7 @@ body {
 /* ส่วนของ Education */
 #education, #Experience {
     padding: 40px 20px;
-    background-color: #333333; /* สีดำ */
+    background-color: var(--secondary-color); /* สีดำ */
     text-align: center;
     margin-top: 20px;
     border-top: 1px solid var(--border-color);
@@ -201,4 +228,15 @@ body {
     #contact p {
         font-size: 16px;
     }
+    /* ปรับแต่งสำหรับหน้าจอเล็ก */
+@media (max-width: 768px) {
+    .home {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .home-image-wrapper {
+        margin-top: 20px;
+    }
+}
 }
